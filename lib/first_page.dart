@@ -14,19 +14,29 @@ class _FirstPageState extends State<FirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("First Page"),
+        title: const Text("Home"),
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Provider.of<DataProvider>(context, listen: false)
-                .updateButtonTitle("Press me");
-            Provider.of<DataProvider>(context, listen: false)
-                .updatePageTitle("Page Two");
-            Navigator.of(context).pushNamed("/secondPage");
+            showModalBottomSheet(
+              context: context,
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      topRight: Radius.circular(25))),
+              builder: (context) => Container(
+                alignment: Alignment.center,
+                height: 400,
+                child: Text(
+                  "Bottom sheet is opened!",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            );
           },
           child: const Text(
-            "Move to Second Page",
+            "Open Bottomsheet",
           ),
         ),
       ),

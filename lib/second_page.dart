@@ -16,15 +16,32 @@ class _SecondPageState extends State<SecondPage> {
       builder: (context, value, child) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(value.pageTitle),
+            title: Text("Settings"),
           ),
           body: Center(
             child: ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                showDialog(
+                  context: context,
+                  builder: (context) => const SimpleDialog(
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                    title: Text("Simple Dialog"),
+                    children: [
+                      Text(
+                        "Dialog Body",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      Text(
+                        "More Dialog Body",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
+                  ),
+                );
               },
               child: Text(
-                value.buttonTitle,
+                "Open Dialog",
               ),
             ),
           ),

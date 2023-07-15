@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           bodyMedium: TextStyle(fontSize: 100, fontWeight: FontWeight.w800),
         ),
       ),
-      home: const FirstPage(),
+      home: const NavigationPage(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case "/":
