@@ -10,7 +10,7 @@ class NavigationPage extends StatefulWidget {
 }
 
 class _NavigationPageState extends State<NavigationPage> {
-  int _selectedIndex = 0;
+  int currentIndex = 0;
 
   List<Widget> pages = const [FirstPage(), SecondPage()];
 
@@ -18,16 +18,15 @@ class _NavigationPageState extends State<NavigationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _selectedIndex,
+          currentIndex: currentIndex,
           selectedItemColor: Colors.blue,
           backgroundColor: Colors.yellow,
           unselectedItemColor: Colors.black38,
           unselectedFontSize: 12,
           selectedFontSize: 16,
           onTap: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
+            currentIndex = index;
+            setState(() {});
           },
           items: const [
             BottomNavigationBarItem(
@@ -47,7 +46,7 @@ class _NavigationPageState extends State<NavigationPage> {
               label: "Settings",
             ),
           ]),
-      body: pages[_selectedIndex],
+      body: pages[currentIndex],
     );
   }
 }
